@@ -1,4 +1,5 @@
 # Microservice_docker
 # 1. Default scheme (master branch)
 
-![master](https://github.com/MineLisovich/Microservice_docker/assets/33331403/0abd15e6-a631-4e5a-8fa7-c581b492a437)
+![master](https://github.com/MineLisovich/Microservice_docker/assets/33331403/4757ffba-1659-443a-a46d-20a292f2c393)
+
