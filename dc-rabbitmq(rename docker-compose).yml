@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  authorization:    
+    container_name: authorization
+    build:      
+     context: ./Authorization.Microservice
+     dockerfile: Dockerfile
+    ports:
+      - "1707:80"
+    networks:
+     - microservice_docker_network
+  admin:
+   container_name: admin
+   build:
+    context: ./Admin.Microservice
+    dockerfile: Dockerfile
+   ports:
+     - "6117:80"
+   networks:
+     - microservice_docker_network
+   depends_on:
+     - authorization
+  user:
+   container_name: user
+   build:
+    context: ./User.Microservice
+    dockerfile: Dockerfile
+   ports:
+    - "7111:80"
+   networks:
+    - microservice_docker_network
+  rabbitmq:
+   container_name: rabbitmq
+   image: rabbitmq
+   ports:
+    - 5672:5672
+    - 15672:15672
+   networks:
+    - microservice_docker_network
+networks:
+  microservice_docker_network:
+    external: true
+    driver: bridge

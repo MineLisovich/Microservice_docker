@@ -1,0 +1,11 @@
+﻿@model TestModels
+<h1>GetAdminView</h1>
+
+@foreach (var obj in Model.Entities)
+{
+    <div>
+        @obj.Id: @obj.MessageForAdmin
+    </div>
+}
+
+<a asp-action="GetViewFromAdmin">Перейти по ссылке в том же микросервисе</a>
