@@ -11,6 +11,6 @@
 
 ![apigateway_rabbit](https://github.com/MineLisovich/Microservice_docker/assets/33331403/24fd3461-b36e-49e3-89da-95e224c05047)
 
-# 4. Gateway_rabbitmq_sql scheme (gateway_rabbitmq_containerization branch)
+# 4. Gateway_rabbitmq_sql scheme (gateway_rabbitmq_sql_containerization branch)
 
 ![apigateway_rabbit_sql](https://github.com/MineLisovich/Microservice_docker/assets/33331403/219ce635-0bff-47b9-894b-4125f72fd343)
