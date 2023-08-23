@@ -50,6 +50,18 @@ services:
     - user
    networks:
     - microservice_docker_network
+  rabbitmq:
+   container_name: rabbitmq
+   image: rabbitmq:3-management
+   ports:
+    - 5672:5672
+    - 15672:15672
+   depends_on:
+    - authorization
+    - admin
+    - user
+   networks:
+    - microservice_docker_network
 networks:
   microservice_docker_network:
     external: true

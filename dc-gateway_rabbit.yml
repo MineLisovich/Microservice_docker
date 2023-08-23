@@ -7,6 +7,8 @@ services:
      dockerfile: Dockerfile
     ports:
       - "1707:80"
+    environment:
+      "PUBLIC_PORT": "1707"
     networks:
      - microservice_docker_network
   admin:
@@ -16,10 +18,10 @@ services:
     dockerfile: Dockerfile
    ports:
      - "6117:80"
+   environment:
+     "PUBLIC_PORT": "6117"
    networks:
      - microservice_docker_network
-   depends_on:
-     - authorization
   user:
    container_name: user
    build:
@@ -27,14 +29,37 @@ services:
     dockerfile: Dockerfile
    ports:
     - "7111:80"
+   environment:
+     "PUBLIC_PORT": "7111"
+   networks:
+    - microservice_docker_network
+  gateway:
+   container_name: gateway
+   build:
+    context: ./Gateway.Microservise
+    dockerfile: Dockerfile
+   ports:
+    - "5343:80"
+   links:
+    - authorization
+    - admin
+    - user
+   depends_on:
+    - authorization
+    - admin
+    - user
    networks:
     - microservice_docker_network
   rabbitmq:
    container_name: rabbitmq
-   image: rabbitmq
+   image: rabbitmq:3-management
    ports:
     - 5672:5672
     - 15672:15672
+   depends_on:
+    - authorization
+    - admin
+    - user
    networks:
     - microservice_docker_network
 networks:

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using User.Microservice.Domain;
 using User.Microservice.Domain.Repositories;
+using User.Microservice.RabbitMQ;
 using User.Microservice.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserEntity, EFUserEntity>();
+builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
 builder.Services.AddTransient<AuthOptions>();
 builder.Services.AddDbContext<UserDbContext>(x => x.UseSqlServer(Config.DefaultConnection));
 

@@ -1,5 +1,6 @@
 using Admin.Microservice.Domain;
 using Admin.Microservice.Domain.Repositories;
+using Admin.Microservice.RabbitMQ;
 using Admin.Microservice.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAdminEntity, EFAdminEntity>();
+builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
 builder.Services.AddTransient<AuthOptions>();
 builder.Services.AddDbContext<AdminDbContext>(x => x.UseSqlServer(Config.DefaultConnection));
 // Add services to the container.
