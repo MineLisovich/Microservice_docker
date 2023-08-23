@@ -6,3 +6,8 @@
 # 2. Gateway scheme (api_gateway_containerization branch)
 
 ![apigateway](https://github.com/MineLisovich/Microservice_docker/assets/33331403/850028b8-bd10-4686-9841-c54cfc7f9015)
+
+# 3. Gateway_rabbitmq scheme (gateway_rabbitmq_containerization branch)
+
+![apigateway_rabbit](https://github.com/MineLisovich/Microservice_docker/assets/33331403/24fd3461-b36e-49e3-89da-95e224c05047)
+
