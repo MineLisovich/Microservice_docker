@@ -78,6 +78,10 @@ services:
     - MSSQL_PID=Express
    ports:
     - 1433:1433
+   volumes:
+    - ./data:/var/opt/mssql/data
+    - ./log:/var/opt/mssql/log
+    - ./secrets:/var/opt/mssql/secrets
    networks:
     - microservice_docker_network
 networks:
