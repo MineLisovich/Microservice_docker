@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  authorization:    
+    container_name: authorization
+    build:      
+     context: ./Authorization.Microservice
+     dockerfile: Dockerfile
+    ports:
+      - "1707:80"
+    environment:
+      - backendUrl=http://admin
+    depends_on: 
+      - admin
+  admin:
+   container_name: admin
+   build:
+    context: ./Admin.Microservice
+    dockerfile: Dockerfile
+   ports:
+     - "6117:80"

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  labels:
+   app: k8s_user
+   env: prod
+   owner: DaniilZelenko
+spec:
+  replicas: 2
+  selector:
+   matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+      - name: user
+        image: minelisovich/user:latest
+        ports:
+        - containerPort: 7111
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://*:7111
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 7111
+  selector:
+    app: user

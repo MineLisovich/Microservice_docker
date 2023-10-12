@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Admin.Microservice.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class TestController : Controller
     {
         private readonly IAdminEntity _adminEntity;
@@ -38,6 +38,12 @@ namespace Admin.Microservice.Controllers
         public IActionResult GetViewFromAdmin()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Kill()
+        {
+            throw new Exception("EEEEE");
         }
 
     }

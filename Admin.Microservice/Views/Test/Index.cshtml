@@ -1,6 +1,13 @@
-﻿<h1>Index</h1>
+﻿@using System.Net;
+<h1>Index</h1>
 
 <a asp-controller="Test" asp-action="GetAdminView">Посмотреть сообщения для админа</a>
 
+@{
+    var ip = IPAddress.Loopback;
+}
+
+@ip
 
 
+<a asp-controller="Test" asp-action="Kill">KillMeeeee</a>

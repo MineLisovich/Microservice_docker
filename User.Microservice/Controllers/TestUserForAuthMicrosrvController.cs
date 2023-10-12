@@ -24,5 +24,15 @@ namespace User.Microservice.Controllers
             IEnumerable<UserEntity> messages = _userEntity.GetAllMessageForUser();
             return messages;
         }
+
+        [HttpGet]
+        [Route("noSqlresponse")]
+        public IActionResult GetTestData()
+        {
+            var text = "User mocroservice";
+
+            return Ok(text);
+        }
     }
+
 }

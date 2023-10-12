@@ -19,8 +19,7 @@ namespace Admin.Microservice.Controllers
         [HttpGet]
         public IActionResult SendMessage(string message)
         {
-            _mqService.SendProductMessage(message);
-
+            _mqService.SendProductMessage(message); 
             return Ok("Сообщение отправлено");
         }
     }
