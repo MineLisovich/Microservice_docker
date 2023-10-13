@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: admin #default dns name????
+  name: admin
   labels:
     app: k8s_admin
     env: prod
