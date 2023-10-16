@@ -12,14 +12,16 @@ namespace Admin.Microservice.Controllers
     public class TestController : Controller
     {
         private readonly IAdminEntity _adminEntity;
-
-        public TestController (IAdminEntity adminEntity)
+        private string message;
+        public TestController (IAdminEntity adminEntity, IConfiguration configuration)
         {
             _adminEntity = adminEntity;
+            message = $"HOST: ({configuration["HOSTNAME"]})";
         }
 
         public IActionResult Index()
         {
+            ViewBag.Message = message;  
             return View();
         }
 

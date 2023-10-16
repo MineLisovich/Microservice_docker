@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Drawing.Text;
 
 namespace Admin.Microservice.Controllers
 {
@@ -12,10 +13,11 @@ namespace Admin.Microservice.Controllers
     public class AdminController : ControllerBase
     {
         private readonly IAdminEntity _adminEntity;
-
-        public AdminController (IAdminEntity adminEntity)
+        private string message;
+        public AdminController (IAdminEntity adminEntity, IConfiguration configuration)
         {
             _adminEntity = adminEntity;
+            message = $"HOST: ({configuration["HOSTNAME"]})";
         }
 
         [Authorize(Roles = "Admin")] 
@@ -37,6 +39,12 @@ namespace Admin.Microservice.Controllers
                 return Results.NotFound(new { message = "Message for Admin not found" });
             }
             return Results.Json(message);
+        }
+        [HttpGet]
+        [Route("GetHostName")]
+        public IActionResult GetHostName()
+        {
+            return Ok(message);
         }
     }
 }
