@@ -1,0 +1,91 @@
+{
+  "Routes": [
+    //AUTHORIZATION.MICROSERVICE/////////////////////////////////////////////
+    {
+      "DownstreamPathTemplate": "/api/auth/authorization",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authorization",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/auth/authorization",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/auth/getuser",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authorization",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/auth/getuser",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/DeleteCookie",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authorization",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/auth/DeleteCookie",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/RequestToUserMicroserv/getusermess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authorization",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RequestToUserMicroserv/getusermess",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/RequestToUserMicroserv/GetdataFromAdminMicroNoSQL",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authorization",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RequestToUserMicroserv/GetdataFromAdminMicroNoSQL",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    //ADMIN.MICROSERVICE////////////////////////////////////////////////////
+    {
+      "DownstreamPathTemplate": "/api/admin/adminmess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "admin",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/admin/adminmess",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    //USER.MICROSERVICE////////////////////////////////////////////////////
+    {
+      "DownstreamPathTemplate": "/api/user/usermess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/usermess",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    }
+  ]
+}
