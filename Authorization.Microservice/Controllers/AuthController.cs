@@ -48,11 +48,7 @@ namespace Authorization.Microservice.Controllers
                 signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            //var respone = new
-            //{
-            //    access_token = encodedJwt,
-            //    user = identity.Name
-            //};
+  
 
             HttpContext.Response.Cookies.Append(".AspNetCore.Application.Id", encodedJwt,
               new CookieOptions
