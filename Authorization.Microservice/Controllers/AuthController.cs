@@ -50,6 +50,7 @@ namespace Authorization.Microservice.Controllers
 
   
 
+
             HttpContext.Response.Cookies.Append(".AspNetCore.Application.Id", encodedJwt,
               new CookieOptions
               {
